@@ -74,3 +74,7 @@ gem "devise", "~> 4.9"
 gem 'font-awesome-sass', "~> 6.5.1"
 
 gem 'pagy'
+gem 'rack-cors'
+gem 'rest-client'
+gem 'bullet'
+
