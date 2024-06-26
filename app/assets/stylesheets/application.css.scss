@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
+ *= require actiontext
  */
 
  @import "font-awesome";
+ @import 'actiontext.css';
