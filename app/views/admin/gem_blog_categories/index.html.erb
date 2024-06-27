@@ -4,8 +4,8 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Categories</h1>
-    <%= link_to "New category", new_admin_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl">Blog Categories</h1>
+    <%= link_to "New blog category", new_admin_gem_blog_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div class="flex flex-col w-full">
@@ -21,25 +21,25 @@
                   Name
                 </th>
                 <th scope="col" class="text-sm font-medium text-sky-800 px-6 py-4 text-left">
-                  Description 
+                  Description
                 </th>
               </tr>
             </thead>
             <tbody>
-              <% @admin_categories.each do |c| %>
+              <% @admin_gem_blog_categories.each do |category| %>
                 <tr class="bg-sky-50 border-b">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-sky-800 underline">
-                    <% if c.image.attached? && c.image.variable? %>
-                      <%= image_tag(c.image.variant(resize_to_fill: [50, 50])) %>
+                    <% if category.image.attached? %>
+                      <%= image_tag category.image.variant(resize_to_fill: [50, 50]), alt: category.name %>
                     <% else %>
-                      <%= image_tag("https://via.placeholder.com/50") %>
+                      <%= image_tag "https://via.placeholder.com/50", alt: "Placeholder image" %>
                     <% end %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-sky-800 underline">
-                    <%= link_to c.name, edit_admin_category_path(c) %>
+                    <%= link_to category.name, edit_admin_gem_blog_category_path(category) %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-sky-800">
-                    <%= c.description %>
+                    <%= category.description %>
                   </td>
                 </tr>
               <% end %>
