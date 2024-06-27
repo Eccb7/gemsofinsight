@@ -1,0 +1,58 @@
+<div class="min-h-screen">
+  <h1>Cart Page</h1>
+  <div id="errorContainer"></div>
+  <div data-controller="cart">
+    <table class="mt-4 w-full">
+      <thead>
+        <tr>
+          <th class="px-4 py-2">Item</th>
+          <th class="px-4 py-2">Price</th>
+          <th class="px-4 py-2">Size</th>
+          <th class="px-4 py-2">Quantity</th>
+          <th class="px-4 py-2">Action</th>
+        </tr>
+      </thead>
+      <tbody id="cartItems">
+        <!-- Cart items will be appended here -->
+      </tbody>
+    </table>
+    <div class="mt-4 font-medium" id="total"></div>
+
+    <!-- For mobile view -->
+    <div class="mt-6 vertical-buttons">
+      <button class="py-2 px-4 bg-sky-500 hover:bg-sky-600 rounded text-white" data-action="click->cart#checkout">Checkout</button>
+      <button class="py-2 px-4 bg-green-500 hover:bg-green-600 rounded text-white" data-action="click->cart#orderViaWhatsapp">
+        <i class="fab fa-whatsapp mr-2"></i>Order Via Whatsapp
+      </button>
+      <button class="py-2 px-4 bg-sky-500 hover:bg-sky-600 rounded text-white" data-action="click->cart#clear">Clear Cart</button>
+    </div>
+
+ 
+
+  </div>
+</div>
+
+<style>
+  /* For mobile view */
+@media (max-width: 768px) {
+  .vertical-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align buttons at the center horizontally */
+  }
+
+  .vertical-buttons button {
+    margin-bottom: 10px; /* Add some space between buttons */
+  }
+}
+
+/* For desktop view */
+@media (min-width: 769px) {
+  .horizontal-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Add some space between buttons */
+  }
+}
+
+</style>
