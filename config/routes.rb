@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :products
+    resources :gem_blog_categories do
+      resources :posts
+    end
     resources :orders
     resources :products do
       resources :stocks
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
       resources :categories
   end
   devise_for :admins
+  # devise_for :user
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -21,8 +24,9 @@ Rails.application.routes.draw do
     root to: "admin#index", as: :admin_root
   end
 
-  resources :categories, only: [:show]
+  resources :categories, only: [:show, :index]
   resources :products, only: [:show]
+  resources :posts
 
   get "admin" => "admin#index"
   get "cart" => "carts#show"
@@ -30,4 +34,5 @@ Rails.application.routes.draw do
   get "success" => "checkouts#success"
   get "cancel" => "checkouts#cancel"
   post "webhooks" => "webhooks#stripe"
+  get "blogs" => "blogs#index"
 end
