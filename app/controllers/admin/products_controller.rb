@@ -3,12 +3,10 @@ class Admin::ProductsController < AdminController
 
   # GET /admin/products or /admin/products.json
   def index
-    # @admin_product = Product.all
-    if params[:query].present?
-      @pagy, @admin_products = pagy(Product.where("name LIKE ?", "%#{params[:query]}%"))
-    else
-      @pagy, @admin_products = pagy(Product.all)
-    end
+    @page = params.fetch(:page, 1).to_i
+    @per_page = 10
+    @admin_products = Product.offset((@page - 1) * @per_page).limit(@per_page)
+    @total_pages = (Product.count.to_f / @per_page).ceil
   end
 
   # GET /admin/products/1 or /admin/products/1.json
@@ -65,13 +63,14 @@ class Admin::ProductsController < AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_product
-      @admin_product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def admin_product_params
-      params.require(:product).permit(:name, :description, :price, :category_id, :active, images: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_product
+    @admin_product = Product.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def admin_product_params
+    params.require(:product).permit(:name, :description, :price, :category_id, :active, images: [])
+  end
 end
