@@ -77,4 +77,7 @@ gem 'pagy'
 gem 'rack-cors'
 gem 'rest-client'
 gem 'bullet'
-
+gem 'builder', '~> 3.1'
+gem 'actiontext'
+gem 'react_on_rails'
+gem 'webpacker'
