@@ -179,6 +179,7 @@ GEM
     nokogiri (1.16.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    package_json (0.1.0)
     pagy (8.4.0)
     pg (1.5.6)
     psych (5.1.2)
@@ -261,6 +262,12 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    shakapacker (8.0.0)
+      activesupport (>= 5.2)
+      package_json
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -341,6 +348,7 @@ DEPENDENCIES
   react_on_rails
   rest-client
   selenium-webdriver
+  shakapacker (= 8.0)
   sprockets-rails
   stimulus-rails
   tailwindcss-rails

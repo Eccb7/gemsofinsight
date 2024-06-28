@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   namespace :admin do
     resources :gem_blog_categories do
       resources :posts

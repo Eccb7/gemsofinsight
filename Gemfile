@@ -81,3 +81,5 @@ gem 'builder', '~> 3.1'
 gem 'actiontext'
 gem 'react_on_rails'
 gem 'webpacker'
+
+gem "shakapacker", "= 8.0"
