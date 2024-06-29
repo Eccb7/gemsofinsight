@@ -79,7 +79,7 @@ gem 'rest-client'
 gem 'bullet'
 gem 'builder', '~> 3.1'
 gem 'actiontext'
-gem 'react_on_rails'
-gem 'webpacker'
+# gem 'react_on_rails'
+# gem 'webpacker'
 
-gem "shakapacker", "= 8.0"
+# gem "shakapacker", "= 8.0"
